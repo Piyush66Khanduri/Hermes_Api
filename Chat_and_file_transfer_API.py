@@ -71,7 +71,7 @@ def send_email(receiver_email, otp):
     msg["To"] = receiver_email
 
     try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 587) as server:
             server.login(sender_email, sender_password)
             server.send_message(msg)
     except Exception as e:
@@ -455,5 +455,6 @@ def index():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
 
 
